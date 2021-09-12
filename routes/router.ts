@@ -29,7 +29,9 @@ router.post('/mensajes/:id', (req: Request, res: Response) => {
     ok: true,
     mensaje: 'post',
     cuerpo,
-    de
+    de,
+    id,
+
   })
 })
 
