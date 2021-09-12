@@ -1,9 +1,10 @@
-se intaló:
+se instaló:
 
 ```
 npm install express
 npm isntall cors
 npm isntall body-parser
+npm i --save-dev @types/express
 ```
 
 iniciar proyecto con typescript
