@@ -2,6 +2,7 @@ import { SERVER_PORT } from '../global/environment';
 import express from 'express';
 import socketio from 'socket.io'
 import http from 'http'
+import * as socket from '../sockets/socket'
 
 export default class Server {
   private static _instance: Server;
@@ -17,7 +18,7 @@ export default class Server {
 
     this.httpServer = new http.Server(this.app);
     this.io = new socketio.Server(this.httpServer, { cors: { origin: true, credentials: true } });
-    this.escucharSocket
+    this.escucharSocket();
   }
 
   // algo estatico es algo que se puede llamar solo haciendo referencia a la clase
@@ -31,8 +32,13 @@ export default class Server {
     // on es para escuchar un evento
     this.io.on('connection', client => {
       console.log('cliente conectado');
+      
+      //verificamos si el cliente se desconecta
+      
+      socket.disconnect(client);
 
     });
+    
   }
 
   start(callback: () => void) {

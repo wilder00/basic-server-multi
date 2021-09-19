@@ -15,8 +15,18 @@ iniciar proyecto con typescript
 ```
 tsc --init
 
-#para que esté en modo observador
+#para que esté en modo observador, es decir pase de ts a js cada vez que haya cambios
 tsc -w
+```
+
+para correr el projecto
+```
+node dist/
+# o
+nodemon dist/
+
+# para nodemon requiere instalarlo de forma global 
+npm install -g nodemon
 ```
 
 Creando el tag en git
