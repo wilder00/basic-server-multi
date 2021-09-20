@@ -33,7 +33,7 @@ export default class Server {
     this.io.on('connection', client => {
       
       //Conectar cliente
-      socket.conectarCliente( client )
+      socket.conectarCliente( client, this.io)
 
       //verificamos la configuración del usuario
       socket.configurarUsuario(client, this.io);
@@ -43,7 +43,7 @@ export default class Server {
 
 
       //verificamos si el cliente se desconecta
-      socket.disconnect(client);
+      socket.disconnect(client, this.io);
 
       
 
