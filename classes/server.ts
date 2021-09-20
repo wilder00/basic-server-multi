@@ -31,12 +31,15 @@ export default class Server {
 
     // on es para escuchar un evento la conzión de un usuario
     this.io.on('connection', client => {
-      
+
       //Conectar cliente
-      socket.conectarCliente( client, this.io)
+      socket.conectarCliente(client, this.io)
 
       //verificamos la configuración del usuario
       socket.configurarUsuario(client, this.io);
+
+      // obtener usuarios activos
+      socket.obtenerUsuarios(client, this.io);
 
       //verificando el envio de mensajes
       socket.message(client, this.io);
@@ -45,10 +48,10 @@ export default class Server {
       //verificamos si el cliente se desconecta
       socket.disconnect(client, this.io);
 
-      
+
 
     });
-    
+
   }
 
   start(callback: () => void) {
