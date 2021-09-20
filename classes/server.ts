@@ -41,6 +41,9 @@ export default class Server {
       //verificamos si el cliente se desconecta
       socket.disconnect(client);
 
+      //verificamos la configuración del usuario
+      socket.configurarUsuario(client, this.io);
+
     });
     
   }
